@@ -1,0 +1,29 @@
+# This is the Compose file for command-line services.
+# Anything that doesn't need to be run as part of the main `docker-compose up'
+# command should reside in here and be invoked by a helper script.
+version: "3.7"
+services:
+  wp:
+    build: ./services/wp-cli
+    volumes:
+      - ./services/wordpress:/var/www/html:cached
+      - type: volume
+        source: fs-data
+        target: /var/www/html/public/wp-content/uploads
+  gesso:
+    build:
+      context: ./services/wordpress/public/wp-content/themes/wordcamp-seattle-2019
+      dockerfile: $PWD/services/gesso/Dockerfile
+    init: true
+    volumes:
+      - ./services/wordpress/public/wp-content/themes/wordcamp-seattle-2019/images:/app/images:cached
+      - ./services/wordpress/public/wp-content/themes/wordcamp-seattle-2019/js:/app/js:cached
+      - ./services/wordpress/public/wp-content/themes/wordcamp-seattle-2019/source:/app/source:cached
+      - type: volume
+        source: gesso-patternlab
+        target: /app/pattern-lab
+      - type: volume
+        source: gesso-css
+        target: /app/css
+volumes:
+  {}

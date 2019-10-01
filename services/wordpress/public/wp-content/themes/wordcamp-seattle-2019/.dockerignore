@@ -1,0 +1,7 @@
+*
+!package.json
+!package-lock.json
+!gulpfile.js
+!patternlab-config.json
+!.stylelintignore
+!.stylelintrc.yml

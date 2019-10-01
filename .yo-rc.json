@@ -1,0 +1,20 @@
+{
+  "generator-web-starter": {
+    "promptValues": {
+      "name": "wordcamp-seattle-2019",
+      "platform": "Docker",
+      "dockerCms": "WordPress",
+      "dockerSearch": "None",
+      "dockerCache": "None",
+      "documentRoot": "public",
+      "wpStarter": false,
+      "useGesso": true,
+      "useCapistrano": true,
+      "gessoThemeName": "wordcamp-seattle-2019",
+      "capistranoDeployMethod": "rsync",
+      "capistranoReleases": 3,
+      "capistranoRepository": "''"
+    },
+    "projectName": "wordcamp-seattle-2019"
+  }
+}
